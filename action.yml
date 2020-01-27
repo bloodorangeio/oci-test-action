@@ -1,0 +1,10 @@
+name: OCI Test
+description: Run the OCI Distribution Spec conformance tests
+author: Blood Orange
+branding:
+  color: orange
+  icon: box
+inputs: {}
+runs:
+  using: docker
+  image: Dockerfile
