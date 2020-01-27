@@ -3,8 +3,8 @@
 ## Example
 
 ```yaml
-# Place in repo at .github/workflows/oci-conformance.yml
-name: oci-conformance
+# Place in repo at .github/workflows/oci-test.yml
+name: oci-test
 on: push
 jobs:
   run:
