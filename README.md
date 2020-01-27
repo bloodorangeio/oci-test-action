@@ -17,7 +17,7 @@ jobs:
           OCI_NAMESPACE: myorg/myrepo
           OCI_USERNAME: ${{ secrets.OCI_USERNAME }}
           OCI_PASSWORD: ${{ secrets.OCI_PASSWORD }}
-      - name: Upload test output zip as artifact
+      - name: Upload test results zip as build artifact
         uses: actions/upload-artifact@master
         with:
           name: results
