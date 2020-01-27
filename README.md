@@ -1,6 +1,14 @@
 # oci-test-action
 
-## Example
+## Overview
+
+GitHub Action for running the [OCI Distribution Spec conformance tests](https://github.com/opencontainers/distribution-spec/tree/master/conformance).
+
+## Example Usage
+
+Note: the following example expects that `OCI_USERNAME` and `OCI_PASSWORD` have been setup as GitHub secrets. 
+
+This example workflow will run the conformance tests against your registry and archive the test results:
 
 ```yaml
 # Place in repo at .github/workflows/oci-test.yml
