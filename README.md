@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run OCI Distribution Spec conformance tests
-        uses: bloodorangeio/oci-test-action@master
+        uses: bloodorangeio/oci-test-action@@v1.0.0-alpha.1
         env:
           OCI_ROOT_URL: https://r.myreg.io
           OCI_NAMESPACE: myorg/myrepo
