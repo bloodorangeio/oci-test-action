@@ -19,16 +19,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run OCI Distribution Spec conformance tests
-        uses: bloodorangeio/oci-test-action@@v1.0.0-alpha.1
+        uses: bloodorangeio/oci-test-action@v1.0.0-alpha.2
         env:
-          OCI_ROOT_URL: https://r.myreg.io
-          OCI_NAMESPACE: myorg/myrepo
-          OCI_USERNAME: ${{ secrets.OCI_USERNAME }}
-          OCI_PASSWORD: ${{ secrets.OCI_PASSWORD }}
+          OCI_ROOT_URL: https://quay.io
+          OCI_NAMESPACE: bloodorange/oci-conformance-test
+          OCI_USERNAME: ${{ secrets.QUAY_USERNAME }}
+          OCI_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
+      - run: mkdir -p .out/ && mv {report.html,junit.xml} .out/
+        if: always()
       - name: Upload test results zip as build artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v1
         with:
-          name: results
-          path: /results
+          name: oci-test-results-${{ github.sha }}
+          path: .out/
         if: always()
 ```
+
+## Adding a Badge
+
+You can add a badge pointing to list of runs for this action using the following markdown:
+
+```
+[![](https://github.com/<org>/<repo>/workflows/oci-test/badge.svg)](https://github.com/<org>/<repo>/actions?query=workflow%3Aoci-test)
+```
+
+(replacing `<org>` and `<repo>` with your GitHub repo details)
