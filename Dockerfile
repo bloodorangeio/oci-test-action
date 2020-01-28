@@ -15,5 +15,4 @@ RUN apk --update add git ca-certificates && \
 FROM scratch AS final
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /conformance.test /conformance.test
-WORKDIR /results
 ENTRYPOINT ["/conformance.test"]
