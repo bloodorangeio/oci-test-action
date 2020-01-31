@@ -6,7 +6,7 @@ RUN apk --update add git make ca-certificates && \
     mkdir -p /go/src/github.com/bloodorangeio/opencontainers && \
     cd /go/src/github.com/bloodorangeio/opencontainers && \
     git clone https://github.com/bloodorangeio/distribution-spec.git -b mess-with-ci && \
-    cd distribution-spec/ && cat Makefile && make conformance-binary && \
+    cd distribution-spec/ && make conformance-binary && \
     mv output/conformance.test /conformance.test
 
 # ---
