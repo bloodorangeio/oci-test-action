@@ -5,7 +5,7 @@ FROM docker.io/golang:1.13.6-alpine3.11 AS builder
 RUN apk --update add git make ca-certificates && \
     mkdir -p /go/src/github.com/bloodorangeio/opencontainers && \
     cd /go/src/github.com/bloodorangeio/opencontainers && \
-    git clone https://github.com/bloodorangeio/distribution-spec.git -b mess-with-ci && \
+    git clone https://github.com/bloodorangeio/distribution-spec.git -b revised-conformance-tests && \
     cd distribution-spec/ && make conformance-binary && \
     mv output/conformance.test /conformance.test
 
